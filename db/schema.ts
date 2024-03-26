@@ -62,3 +62,15 @@ export const testing =pgTable("testing", {
      compoundKey: primaryKey({ columns: [vt.identifier, vt.token] }),
    })
   )
+
+  export const room = pgTable("room", {
+    userId: text("userId")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  description: text("description"),
+  language : text("language").notNull(),
+  githubRepo: text("githubRepo"),
+});
+
+export type Room = typeof room.$inferSelect;
