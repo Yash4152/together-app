@@ -1,9 +1,10 @@
-import { TagsList, splitTags } from "@/components/tags-list";
+import { TagsList } from "@/components/tags-list";
 import { getRoom } from "@/app/data-access/rooms";
 import { GithubIcon } from "lucide-react";
 import Link from "next/link";
 import { unstable_noStore } from "next/cache";
 import { TogetherappVideo } from "./videoplayer";
+import { splitTags } from "@/lib/utils";
 
 export default async function RoomPage(props: { params: { roomId: string } }) {
   unstable_noStore();

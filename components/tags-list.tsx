@@ -1,20 +1,25 @@
-import { Badge } from "./ui/badge";
+"use client";
+
+import { Badge, badgeVariants } from "./ui/badge";
 import { useRouter } from "next/navigation";
+import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 
 export function TagsList({ tags }: { tags: string[] }) {
+  const router = useRouter();
   return (
     <div className="flex gap-2 flex-wrap">
       {tags.map((tag) => (
-        <Badge className="w-fit" key ={tag}>
+       <Button
+        onClick={() =>{
+          router.push(`/?search=${tag}`);
+        }}
+        className={cn(badgeVariants())}
+        key ={tag}>
             {tag}
-        </Badge>
+        </Button>
       ))}
     </div>
   );
-}
-
-export function splitTags(tags : string){
-    if(!tags) return [];
-    return tags.split(",").map((tag) => tag.trim());
 }
