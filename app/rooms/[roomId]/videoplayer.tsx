@@ -35,6 +35,8 @@ export function TogetherappVideo({ room }: { room: Room }) {
       apiKey,
       user: {
         id: userId,
+        name: session.data.user.name ?? undefined,
+        image: session.data.user.image ?? undefined,
       },
       tokenProvider: () => generateTokenAction(),
     });
