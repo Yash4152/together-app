@@ -41,7 +41,7 @@ export function SearchBar() {
     if (values.search) {
       router.push(`/?search=${values.search}`);
     } else {
-      router.push("/");
+      router.push("/browse");
     }
   }
 
@@ -74,7 +74,7 @@ export function SearchBar() {
             variant="link"
             onClick={() => {
               form.setValue("search", "");
-              router.push("/");
+              router.push("/browse");
             }}
           >
             Clear
