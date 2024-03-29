@@ -33,3 +33,11 @@ export async function getRoom(roomId: string) {
     await db.delete(room).where(eq(room.id, roomId));
   }
   
+  export async function editRoom(roomData: Room) {
+    const updated = await db
+      .update(room)
+      .set(roomData)
+      .where(eq(room.id, roomData.id))
+      .returning();
+    return updated[0];
+  }
