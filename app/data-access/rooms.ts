@@ -1,5 +1,4 @@
 import {db} from '@/db';
-import { unstable_noStore } from 'next/cache';
 import { eq, like } from "drizzle-orm";
 import { Room, room } from "@/db/schema";
 import { getSession } from '@/lib/auth';
@@ -40,4 +39,15 @@ export async function getRoom(roomId: string) {
       .where(eq(room.id, roomData.id))
       .returning();
     return updated[0];
+  }
+
+  export async function createRoom(
+    roomData: Omit<Room, "id" | "userId">,
+    userId: string
+  ) {
+    const inserted = await db
+      .insert(room)
+      .values({ ...roomData, userId })
+      .returning();
+    return inserted[0];
   }
