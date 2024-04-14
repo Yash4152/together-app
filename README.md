@@ -1,7 +1,7 @@
 ## Getting Started
 
 # Together-app
-Together app is an pair programming app in which two or more programmers share video screen , audio and screnn share from their computers
+Together app is an pair programming app in which two or more programmers share video screen , audio and screnn share from their computers.
 Link : https://together-app-production.up.railway.app/
 
 Tech Stack
