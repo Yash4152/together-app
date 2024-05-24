@@ -28,6 +28,12 @@ npm run dev
 # or
 yarn dev
 ```
+
+For Data push in Database : Drizzle Studio
+```bash
+npm run db:push
+```
+
 For Database : Drizzle Studio
 ```bash
 npm run db:studio
